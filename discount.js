@@ -23,14 +23,15 @@ document.write(".getYear : " + new Date(orders[13].timestamp*1000).getYear() + "
 document.write(".getFullYear : " + new Date(orders[13].timestamp*1000).getFullYear() + "<br>");// Either you ';' everywhere, either you ';' nowhere but you have to choose or its disgusting
 
 function removeDiscount (orders, discount){
-        for (let i = 0; i < orders.length; i++) {
-          document.write("Date:" + new Date(orders[i].timestamp*1000).getMonth() + "   ")//i.e. add ; here etc...
-          document.write(orders[i].price + "<br>")
-        if (6 === new Date(orders[i].timestamp * 1000).getMonth()) { //Yoda condition when assigning in a IF, this is to avoid forgetting a '=' so it becomes if (x = 6) and then it's always true
-          orders[i].price = orders[i].price - orders[i].price * discount / 100
-          document.write(orders[i].price + "<br>")
-        }
+  for (let i = 0; i < orders.length; i++) {
+    document.write("Date:" + new Date(orders[i].timestamp*1000).getMonth() + "   ")//i.e. add ; here etc...
+    document.write(orders[i].price + "<br>")
+    if (6 === new Date(orders[i].timestamp * 1000).getMonth()) { //Yoda condition when assigning in a IF, this is to avoid forgetting a '=' so it becomes if (x = 6) and then it's always true
+      orders[i].price = orders[i].price - orders[i].price * discount / 100
+      document.write(orders[i].price + "<br>")
     }
+  }
+}
 
 document.write(orders[4].price)
 remouveDiscount(orders, 20)
