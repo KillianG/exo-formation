@@ -14,24 +14,24 @@ const orders = [
   {id: 2351, customer: 90, product: 4, timestamp: "1598565765", price: "46.99"},/**07**/
   {id: 2351, customer: 67, product: 8, timestamp: "1599135151", price: "125.99"}/**08**/
 ];
-let date
+
 document.write("<br> <br> <br> TEST DATES : <br>" );
 document.write(new Date(orders[2].timestamp*1000) + "<br>");
 document.write(".getDate : " + new Date(orders[13].timestamp*1000).getDate() + "<br>");
 document.write(".getMonth : " + new Date(orders[13].timestamp*1000).getMonth() + "<br>");
 document.write(".getYear : " + new Date(orders[13].timestamp*1000).getYear() + "<br>");
-document.write(".getFullYear : " + new Date(orders[13].timestamp*1000).getFullYear() + "<br>");
+document.write(".getFullYear : " + new Date(orders[13].timestamp*1000).getFullYear() + "<br>");// Either you ';' everywhere, either you ';' nowhere but you have to choose or its disgusting
 
-function remouveDiscount (orders, discount){
-        for (var i = 0; i < orders.length; i++){
-        document.write("Date:" + new Date(orders[i].timestamp*1000).getMonth() + "   ")
-        document.write(orders[i].price + "<br>")
-        if (new Date(orders[i].timestamp * 1000).getMonth() === 6){
-        orders[i].price = orders[i].price - orders[i].price * discount / 100
-        document.write(orders[i].price + "<br>")
-        }
-        }
+function removeDiscount (orders, discount){
+  for (let i = 0; i < orders.length; i++) {
+    document.write("Date:" + new Date(orders[i].timestamp*1000).getMonth() + "   ")//i.e. add ; here etc...
+    document.write(orders[i].price + "<br>")
+    if (6 === new Date(orders[i].timestamp * 1000).getMonth()) { //Yoda condition when assigning in a IF, this is to avoid forgetting a '=' so it becomes if (x = 6) and then it's always true
+      orders[i].price = orders[i].price - orders[i].price * discount / 100
+      document.write(orders[i].price + "<br>")
+    }
+  }
 }
-const discount = 20;
+
 document.write(orders[4].price)
 remouveDiscount(orders, 20)
