@@ -31,7 +31,6 @@ function removeDiscount (orders, discount){
           document.write(orders[i].price + "<br>")
         }
     }
-}
 
 document.write(orders[4].price)
 remouveDiscount(orders, 20)
